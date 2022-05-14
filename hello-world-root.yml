@@ -1,0 +1,9 @@
+# ansible-playbook -i inventory/localhost hello-world-root.yml -K
+---
+- hosts: all
+  become: true
+  # become_method: sudo
+  tasks:
+  - name: Hello World!
+    debug:
+      msg: "Hello World!"
