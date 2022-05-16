@@ -1,5 +1,3 @@
-# ansible-playbook -i inventory/localhost hello-world.yml
----
 - hosts: all
   tasks:
   - name: Hello World!

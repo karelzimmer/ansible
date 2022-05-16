@@ -1,5 +1,3 @@
-# ansible-playbook -i inventory/localhost hello-world-root.yml -K
----
 - hosts: all
   become: true
   # become_method: sudo
