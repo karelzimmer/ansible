@@ -1,3 +1,4 @@
+# Ref: https://www.ansiblepilot.com/articles/install-google-chrome-in-debian-like-systems-ansible-module-apt_key-apt_repository-and-apt/
 # Zie ook ~/scripts/install-chrome-debian.sh
 - name: install Google Chrome
   hosts: all
