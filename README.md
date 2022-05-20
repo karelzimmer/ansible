@@ -5,7 +5,7 @@ Voor (zelf)studie, en een werk in uitvoering :)
 
 ## Ansible Fundamentals Case
 
-Een kleine PHP-applicatie in die verbinding maakt met een database.
+Maak een kleine PHP-applicatie die verbinding maakt met een database.
 
 ```bash
 ~/ansible$ ansible site.yml -i inventory/dev
