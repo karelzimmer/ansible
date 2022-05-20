@@ -1,6 +1,8 @@
-# ansible-training-case
+# ansible
 
-## Inventarisatie
+## ansible-training-case
+
+### Inventarisatie
 
 1. PHP
 2. Apache2
@@ -13,20 +15,20 @@
 9. Script uitvoeren, data.sql en database
 10. App config
 
-## Roles
+### Roles
 
-### Installatie
+#### Installatie
 
 * apache
 * php
 * mysql
 
-### Config
+#### Config
 
 * doc root aanpassen
 * Handler: restart apache
 
-### Applicatie
+#### Applicatie
 
 * applicatie downloaden naar goeie map
 * config.ini vanuit template!!!!
