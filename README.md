@@ -3,7 +3,15 @@
 Verzameling Ansible playbooks.
 Voor (zelf)studie, en een werk in uitvoering :)
 
-## ansible-training-case
+## Ansible Fundamentals Case
+
+Een kleine PHP-applicatie in die verbinding maakt met een database.
+
+```bash
+~/ansible$ ansible site.yml -i inventory/dev
+~/ansible$ ansible site.yml -i inventory/test
+~/ansible$ ansible site.yml -i inventory/production
+```
 
 ### Inventarisatie
 
