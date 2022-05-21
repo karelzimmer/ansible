@@ -1,1 +1,6 @@
-localhost
+nodes:
+  hosts: 
+    localhost
+
+  vars: 
+    ansible_python_interpreter: /usr/bin/python3
