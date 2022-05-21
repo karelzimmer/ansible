@@ -1,7 +1,7 @@
 # ansible
 
-Verzameling Ansible playbooks.
-Voor (zelf)studie, en een werk in uitvoering :)
+Mijn Ansible playbooks.
+Voor (zelf)studie en een werk in uitvoering.
 
 ## Ansible Fundamentals Case
 
