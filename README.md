@@ -1,7 +1,7 @@
 # ansible
 
 Mijn Ansible playbooks.
-Voor (zelf)studie en een werk in uitvoering.
+Voor (zelf)studie, werk in uitvoering.
 
 ## Ansible Fundamentals Case
 
