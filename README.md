@@ -38,6 +38,7 @@ nodes:
 ```
 
 Dezelfde test met uitvoeren playbook hello-world.yml:
+
 `ansible-playbook -i inventory/localhost hello-world.yml`
 
 Output:
