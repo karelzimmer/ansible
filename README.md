@@ -3,9 +3,9 @@
 Mijn Ansible playbooks.
 Voor (zelf)studie, werk in uitvoering.
 
-## Very basic
+## Basic test
 
-Test if ansible works on localhost:
+Test of ansible werkt op localhost:
 `ansible localhost -a 'echo Hello World!'`
 
 Output:
@@ -15,7 +15,7 @@ localhost | CHANGED | rc=0 >>
 Hello World!
 ```
 
-Content playbook hello-world.yml:
+Inhoud playbook hello-world.yml:
 
 ```yml
 - hosts: all
@@ -25,7 +25,7 @@ Content playbook hello-world.yml:
       msg: "Hello World!"
 ```
 
-Content inventory/localhost:
+Inhoud inventory/localhost:
 
 ```yml
 nodes:
@@ -36,7 +36,7 @@ nodes:
     ansible_python_interpreter: /usr/bin/python3
 ```
 
-Same test by executing playbook hello-world.yml:
+Dezelfde test met uitvoeren playbook hello-world.yml:
 `ansible-playbook -i inventory/localhost hello-world.yml`
 
 Output:
