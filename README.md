@@ -3,6 +3,59 @@
 Mijn Ansible playbooks.
 Voor (zelf)studie, werk in uitvoering.
 
+## Very basic
+
+Test if ansible works on localhost:
+`ansible localhost -a 'echo Hello World!'`
+
+Output:
+
+```console
+localhost | CHANGED | rc=0 >>
+Hello World!
+```
+
+Content playbook hello-world.yml:
+
+```yml
+- hosts: all
+  tasks:
+  - name: Hello World!
+    debug:
+      msg: "Hello World!"
+```
+
+Content inventory/localhost:
+
+```yml
+nodes:
+  hosts: 
+    localhost
+
+  vars: 
+    ansible_python_interpreter: /usr/bin/python3
+```
+
+Same test by executing playbook hello-world.yml:
+`ansible-playbook -i inventory/localhost hello-world.yml`
+
+Output:
+
+```console
+PLAY [all] *******************************************************************************************************
+
+TASK [Gathering Facts] *******************************************************************************************
+ok: [localhost]
+
+TASK [Hello World!] **********************************************************************************************
+ok: [localhost] => {
+    "msg": "Hello World!"
+}
+
+PLAY RECAP *******************************************************************************************************
+localhost                  : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+```
+
 ## Ansible Fundamentals Case
 
 Maak een kleine PHP-applicatie die verbinding maakt met een database.
