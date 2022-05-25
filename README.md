@@ -6,6 +6,7 @@ Voor (zelf)studie, werk in uitvoering.
 ## Basic test
 
 Test of ansible werkt op localhost:
+
 `ansible localhost -a 'echo Hello World!'`
 
 Output:
