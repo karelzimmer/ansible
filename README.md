@@ -21,6 +21,7 @@ Hello World!
 Dezelfde test met uitvoeren playbook hello-world.yml:
 
 ```sh
+cd ~/ansible
 ansible-playbook -i inventory/localhost hello-world.yml
 ```
 
@@ -100,7 +101,8 @@ Maak een kleine PHP-applicatie die verbinding maakt met een database.
 * data importeren
 
 ```sh
-~/ansible$ ansible site.yml -i inventory/dev
-~/ansible$ ansible site.yml -i inventory/test
-~/ansible$ ansible site.yml -i inventory/production
+cd ~/ansible
+ansible site.yml -i inventory/dev
+ansible site.yml -i inventory/test
+ansible site.yml -i inventory/production
 ```
