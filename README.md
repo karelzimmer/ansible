@@ -7,13 +7,38 @@ Voor (zelf)studie, werk in uitvoering.
 
 Test of ansible werkt op localhost:
 
-`ansible localhost -a 'echo Hello World!'`
+```console
+~/ansible$ ansible localhost -a 'echo Hello World!'
+```
 
 Output:
 
 ```console
 localhost | CHANGED | rc=0 >>
 Hello World!
+```
+
+Dezelfde test met uitvoeren playbook hello-world.yml:
+
+```console
+~/ansible$ ansible-playbook -i inventory/localhost hello-world.yml
+```
+
+Output:
+
+```console
+PLAY [all] *******************************************************************************************************
+
+TASK [Gathering Facts] *******************************************************************************************
+ok: [localhost]
+
+TASK [Hello World!] **********************************************************************************************
+ok: [localhost] => {
+    "msg": "Hello World!"
+}
+
+PLAY RECAP *******************************************************************************************************
+localhost                  : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
 ```
 
 Inhoud playbook hello-world.yml:
@@ -37,36 +62,9 @@ nodes:
     ansible_python_interpreter: /usr/bin/python3
 ```
 
-Dezelfde test met uitvoeren playbook hello-world.yml:
-
-`ansible-playbook -i inventory/localhost hello-world.yml`
-
-Output:
-
-```console
-PLAY [all] *******************************************************************************************************
-
-TASK [Gathering Facts] *******************************************************************************************
-ok: [localhost]
-
-TASK [Hello World!] **********************************************************************************************
-ok: [localhost] => {
-    "msg": "Hello World!"
-}
-
-PLAY RECAP *******************************************************************************************************
-localhost                  : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
-```
-
 ## Ansible Fundamentals Case
 
 Maak een kleine PHP-applicatie die verbinding maakt met een database.
-
-```bash
-~/ansible$ ansible site.yml -i inventory/dev
-~/ansible$ ansible site.yml -i inventory/test
-~/ansible$ ansible site.yml -i inventory/production
-```
 
 ### Inventarisatie
 
@@ -100,3 +98,9 @@ Maak een kleine PHP-applicatie die verbinding maakt met een database.
 * config.ini vanuit template!!!!
 * database maken
 * data importeren
+
+```console
+~/ansible$ ansible site.yml -i inventory/dev
+~/ansible$ ansible site.yml -i inventory/test
+~/ansible$ ansible site.yml -i inventory/production
+```
