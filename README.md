@@ -13,7 +13,7 @@ ansible localhost -a 'echo Hello World!'
 
 Output:
 
-```sh
+```console
 localhost | CHANGED | rc=0 >>
 Hello World!
 ```
@@ -27,7 +27,7 @@ ansible-playbook -i inventory/localhost hello-world.yml
 
 Output:
 
-```sh
+```console
 PLAY [all] *******************************************************************************************************
 
 TASK [Gathering Facts] *******************************************************************************************
