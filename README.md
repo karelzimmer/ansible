@@ -7,26 +7,26 @@ Voor (zelf)studie, werk in uitvoering.
 
 Test of ansible werkt op localhost:
 
-```console
-~$ ansible localhost -a 'echo Hello World!'
+```sh
+ansible localhost -a 'echo Hello World!'
 ```
 
 Output:
 
-```console
+```sh
 localhost | CHANGED | rc=0 >>
 Hello World!
 ```
 
 Dezelfde test met uitvoeren playbook hello-world.yml:
 
-```console
-~/ansible$ ansible-playbook -i inventory/localhost hello-world.yml
+```sh
+ansible-playbook -i inventory/localhost hello-world.yml
 ```
 
 Output:
 
-```console
+```sh
 PLAY [all] *******************************************************************************************************
 
 TASK [Gathering Facts] *******************************************************************************************
@@ -99,7 +99,7 @@ Maak een kleine PHP-applicatie die verbinding maakt met een database.
 * database maken
 * data importeren
 
-```console
+```sh
 ~/ansible$ ansible site.yml -i inventory/dev
 ~/ansible$ ansible site.yml -i inventory/test
 ~/ansible$ ansible site.yml -i inventory/production
