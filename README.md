@@ -28,18 +28,18 @@ ansible-playbook -i inventory/localhost hello-world.yml
 Output:
 
 ```console
-PLAY [all] *******************************************************************************************************
+PLAY [all] *************************************************************************
 
-TASK [Gathering Facts] *******************************************************************************************
+TASK [Gathering Facts] *************************************************************
 ok: [localhost]
 
-TASK [Hello World!] **********************************************************************************************
+TASK [Hello World!] ****************************************************************
 ok: [localhost] => {
     "msg": "Hello World!"
 }
 
-PLAY RECAP *******************************************************************************************************
-localhost                  : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+PLAY RECAP *************************************************************************
+localhost: ok=2  changed=0  unreachable=0  failed=0  skipped=0  rescued=0  ignored=0
 ```
 
 Inhoud playbook ~/ansible/hello-world.yml:
