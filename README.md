@@ -8,7 +8,7 @@ Voor (zelf)studie, werk in uitvoering.
 Test of ansible werkt op localhost:
 
 ```console
-~/ansible$ ansible localhost -a 'echo Hello World!'
+~$ ansible localhost -a 'echo Hello World!'
 ```
 
 Output:
@@ -41,7 +41,7 @@ PLAY RECAP *********************************************************************
 localhost                  : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
 ```
 
-Inhoud playbook hello-world.yml:
+Inhoud playbook ~/ansible/hello-world.yml:
 
 ```yml
 - hosts: all
@@ -51,7 +51,7 @@ Inhoud playbook hello-world.yml:
       msg: "Hello World!"
 ```
 
-Inhoud inventory/localhost:
+Inhoud ~/ansible/inventory/localhost:
 
 ```yml
 nodes:
