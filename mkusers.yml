@@ -1,0 +1,21 @@
+- hosts: webservers
+  tasks:
+  - name: Add several users in one group
+    ansible.builtin.user:
+      name: '{{ item }}'
+      state: present
+      groups: 'ansible'
+    loop:
+        - testuser1
+        - testuser2
+
+- hosts: webservers
+  tasks:
+  - name: Add several users in several groups
+    ansible.builtin.user:
+      name: '{{ item.name }}'
+      state: present
+      groups: '{{ item.group }}'
+    loop:
+        - { name: testuser3, group: 'staff' }
+        - { name: testuser4, group: 'ansible' }

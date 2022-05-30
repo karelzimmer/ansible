@@ -1,0 +1,10 @@
+- hosts: webservers
+  tasks:
+
+  - include_vars: 'user_list.yml'
+  - name: Add several users
+    ansible.builtin.user:
+      name: '{{ item.name }}'
+      state: present
+      groups: '{{ item.group }}'
+    loop: '{{ user_list }}'

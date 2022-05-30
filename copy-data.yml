@@ -1,0 +1,7 @@
+- hosts: dbservers
+  tasks: 
+  - name: Copy Initial Datafile
+    ansible.builtin.copy:
+          src: ./data.sql
+          dest: /tmp/data.sql
+          mode: '0644'
