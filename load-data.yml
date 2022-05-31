@@ -1,5 +1,5 @@
 - hosts: dbservers
-  become: true
+  become: yes
   tasks: 
   - name: Load Data file
     community.mysql.mysql_db:

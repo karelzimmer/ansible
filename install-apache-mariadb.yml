@@ -1,5 +1,5 @@
 - hosts: webservers
-  become: true
+  become: yes
 
   tasks:
     - name: Install Apache 2
@@ -14,7 +14,7 @@
   
 
 - hosts: dbservers
-  become: true
+  become: yes
 
   tasks:
     - name: Install MySQL / MariaDB

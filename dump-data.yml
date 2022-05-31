@@ -1,5 +1,5 @@
 - hosts: dbservers
-  become: true
+  become: yes
   tasks: 
         - name: Dump Database Online Data
           community.mysql.mysql_db:

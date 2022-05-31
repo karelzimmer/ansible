@@ -1,5 +1,5 @@
 - hosts: dbservers
-  become: true
+  become: yes
   tasks:
   - name: fetch a file
     ansible.builtin.fetch:

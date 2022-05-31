@@ -2,7 +2,7 @@
 # Zie ook ~/scripts/install-chrome-debian.sh
 - name: install Google Chrome
   hosts: all
-  become: true
+  become: yes
   tasks:
     - name: Install apt-transport-https
       ansible.builtin.apt:

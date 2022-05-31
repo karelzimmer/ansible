@@ -1,5 +1,5 @@
 - name: Deploy application
-  become: true
+  become: yes
   hosts: vps2
   remote_user: root
 
