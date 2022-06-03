@@ -9,3 +9,4 @@
       path: /home/ansible/config.ini
       regexp: '^user='
       line: 'user=usr_{{ inventory_hostname }}'
+      
