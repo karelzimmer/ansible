@@ -1,7 +1,7 @@
 # ansible
 
 Mijn Ansible playbooks.
-Voor (zelf)studie, werk in uitvoering.
+Voor (zelf)studie. Werk in uitvoering.
 
 ## Basic test
 
