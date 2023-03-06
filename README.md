@@ -1,14 +1,12 @@
 # ansible
 
-Mijn Ansible playbooks.
-Voor (zelf)studie. Werk in uitvoering.
+My Ansible Playbooks.
 
-*My Ansible Playbooks.
-For (self) study. Work in progress.*
+For (self) study. Work in progress.
 
 ## Basic test
 
-Test of ansible werkt op localhost:
+Test if Ansible works on localhost:
 
 ```sh
 ansible localhost -a 'echo Hello World!'
@@ -21,7 +19,7 @@ localhost | CHANGED | rc=0 >>
 Hello World!
 ```
 
-Dezelfde test met uitvoeren playbook hello-world.yml:
+Run the same test with playbook hello-world.yml:
 
 ```sh
 cd ~/ansible
@@ -45,7 +43,7 @@ PLAY RECAP *********************************************************************
 localhost: ok=2  changed=0  unreachable=0  failed=0  skipped=0  rescued=0  ignored=0
 ```
 
-Inhoud playbook ~/ansible/hello-world.yml:
+Content playbook ~/ansible/hello-world.yml:
 
 ```yml
 - hosts: all
@@ -64,48 +62,4 @@ nodes:
 
   vars: 
     ansible_python_interpreter: /usr/bin/python3
-```
-
-## Ansible Fundamentals Case
-
-Maak een kleine PHP-applicatie die verbinding maakt met een database.
-
-### Inventarisatie
-
-1. PHP
-2. Apache2
-3. Library
-4. Config aanpassen -> docRoot
-5. Enable php7.4 (8)
-6. Herstart service
-7. Git clone (eerst downloaden en overzetten)
-8. MySQL
-9. Script uitvoeren, data.sql en database
-10. App config
-
-### Roles
-
-#### Installatie
-
-* apache
-* php
-* mysql
-
-#### Config
-
-* doc root aanpassen
-* Handler: restart apache
-
-#### Applicatie
-
-* applicatie downloaden naar goeie map
-* config.ini vanuit template!!!!
-* database maken
-* data importeren
-
-```sh
-cd ~/ansible
-ansible site.yml -i inventory/dev
-ansible site.yml -i inventory/test
-ansible site.yml -i inventory/production
 ```
