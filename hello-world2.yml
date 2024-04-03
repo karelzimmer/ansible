@@ -1,0 +1,10 @@
+# SPDX-FileCopyrightText: Karel Zimmer <info@karelzimmer.nl>
+# SPDX-License-Identifier: CC0-1.0
+
+- name: This is a hello-world example
+  hosts: all
+  tasks:
+    - name: Create a file called '/tmp/hello-world.txt' with the content 'Hello World!'.
+      copy:
+        content: Hello World!
+        dest: /tmp/hello-world.txt

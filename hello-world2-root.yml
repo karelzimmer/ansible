@@ -1,0 +1,18 @@
+# SPDX-FileCopyrightText: Karel Zimmer <info@karelzimmer.nl>
+# SPDX-License-Identifier: CC0-1.0
+
+# ansible-playbook -i inventory/localhost hello-world2-root.yml -K
+- hosts: all
+  become: yes
+  become_method: sudo
+
+- name: This is a hello-world example
+  hosts: all
+  tasks:
+    - name: Create a file called '/tmp/hello-world.txt' with the content 'Hello World!'.
+      become: yes
+      become_method: sudo
+      copy:
+        content: Hello World!
+        dest: /tmp/hello-world.txt
+        owner: root

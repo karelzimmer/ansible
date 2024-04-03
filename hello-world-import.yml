@@ -1,0 +1,5 @@
+# SPDX-FileCopyrightText: Karel Zimmer <info@karelzimmer.nl>
+# SPDX-License-Identifier: CC0-1.0
+
+- import_playbook: hello-world.yml
+- import_playbook: hello-world2.yml
