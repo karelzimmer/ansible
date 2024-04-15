@@ -1,6 +1,10 @@
 <!---
+###############################################################################
+# SPDX-FileComment: Readme for repository ansible
+#
 # SPDX-FileCopyrightText: Karel Zimmer <info@karelzimmer.nl>
 # SPDX-License-Identifier: CC0-1.0
+###############################################################################
 --->
 
 # ansible
