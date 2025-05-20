@@ -1,0 +1,158 @@
+Project: AMQInstall_OPF
+SCM URL:
+https://chakrabs@git.rabobank.nl/scm/opf/opf_amq_install.git
+->
+ssh://git@git.rabobank.nl:7999/opf/opf_amq_install.git
++
+requirements.yml:
+- name: amq
+  src: https://git.rabobank.nl/scm/meng/role_redhat_amq.git
+  scm: git
+  version: release-2.1
+  path: roles
+->
+?
+
+--
+
+Project: OPF_AMQ_Install
+SCM URL:
+https://git.rabobank.nl/projects/OPF/repos/opf_amq_install/browse/install_amq.yml
+->
+?
+
+--
+
+Project: OPF ansible-jenkins-opf
+SCM URL:
+https://git.rabobank.nl/scm/opf/ansible-jenkins-opf.git
+->
+ssh://git@git.rabobank.nl:7999/opf/ansible-jenkins-opf.git
+
+--
+
+Project: OPF ansible-opf-scripts
+SCM URL:
+https://git.rabobank.nl/scm/opf/ansible-opf-scripts.git
+->
+ssh://git@git.rabobank.nl:7999/opf/ansible-opf-scripts.git
+
+--
+
+Project: OPF ansible-test
+SCM URL:
+https://ojedaga@git.rabobank.nl/scm/opf/ansible-test.git
+->
+ssh://git@git.rabobank.nl:7999/opf/ansible-test.git
+
+--
+
+Project: OPF WAS Fixpack install
+https://git.rabobank.nl/scm/opf/ansible-tactical_upgrade.git
+->
+ssh://git@git.rabobank.nl:7999/opf/ansible-tactical_upgrade.git
+
+--
+
+Project: OPF WebSphere 9nd
+SCM URL:
+https://git.rabobank.nl/scm/opf/ansible-was9nd.git
+->
+ssh://git@git.rabobank.nl:7999/opf/ansible-was9nd.git
++
+Git\ansible-was9nd\roles\requirements.yml:
+(git clone https://git.rabobank.nl/scm/opf/ansible-was9nd.git)
+- name: was9_role
+  src: https://git.rabobank.nl/scm/opf/ansible-role-was9nd.git
+  scm: git
+  version: master
+  path: roles
+->
+- name: was9_role
+  src: ssh://git@git.rabobank.nl:7999/opf/ansible-role-was9nd.git
+  scm: git
+  version: master
+  path: roles
+(git add requirements.yml
+ git commit requirements.yml -m 'Non-public Git'
+ git push
+)
+{
+    "stderr_lines": [
+        "\u001b[1;35m [WARNING]: - middlewareRepo was NOT installed successfully: - command\u001b[0m",
+        "\u001b[1;35m/usr/bin/git clone https://git.rabobank.nl/scm/meng/ansible_role_mwrepo.git\u001b[0m",
+        "\u001b[1;35mmiddlewareRepo failed in directory /var/lib/awx/.ansible/tmp/ansible-local-\u001b[0m",
+        "\u001b[1;35m190hbEZVK/tmpFklgAU (rc=128)\u001b[0m",
+        "\u001b[1;35m\u001b[0m",
+        "\u001b[0;31mERROR! - you can use --ignore-errors to skip failed roles and finish processing the list.\u001b[0m"
+    ],
+    "changed": true,
+    "stdout": "- extracting was9_role to /var/lib/awx/projects/_14219__tactical_upgrade_opf/roles/was9_role\n- was9_role (master) was installed successfully\n- adding dependency: middlewareRepo (master)",
+    "msg": "non-zero return code",
+    "delta": "0:00:03.198912",
+    "_ansible_delegated_vars": {
+        "ansible_host": "localhost"
+    },
+    "stdout_lines": [
+        "- extracting was9_role to /var/lib/awx/projects/_14219__tactical_upgrade_opf/roles/was9_role",
+        "- was9_role (master) was installed successfully",
+        "- adding dependency: middlewareRepo (master)"
+    ],
+    "end": "2020-01-21 12:49:29.469986",
+    "_ansible_no_log": false,
+    "cmd": [
+        "ansible-galaxy",
+        "install",
+        "-r",
+        "requirements.yml",
+        "-p",
+        "/var/lib/awx/projects/_14219__tactical_upgrade_opf/roles/",
+        "--force"
+    ],
+    "start": "2020-01-21 12:49:26.271074",
+    "stderr": "\u001b[1;35m [WARNING]: - middlewareRepo was NOT installed successfully: - command\u001b[0m\n\u001b[1;35m/usr/bin/git clone https://git.rabobank.nl/scm/meng/ansible_role_mwrepo.git\u001b[0m\n\u001b[1;35mmiddlewareRepo failed in directory /var/lib/awx/.ansible/tmp/ansible-local-\u001b[0m\n\u001b[1;35m190hbEZVK/tmpFklgAU (rc=128)\u001b[0m\n\u001b[1;35m\u001b[0m\n\u001b[0;31mERROR! - you can use --ignore-errors to skip failed roles and finish processing the list.\u001b[0m",
+    "rc": 1,
+    "invocation": {
+        "module_args": {
+            "warn": true,
+            "executable": null,
+            "_uses_shell": false,
+            "strip_empty_ends": true,
+            "_raw_params": "ansible-galaxy install -r requirements.yml -p /var/lib/awx/projects/_14219__tactical_upgrade_opf/roles/ --force",
+            "removes": null,
+            "argv": null,
+            "creates": null,
+            "chdir": "/var/lib/awx/projects/_14219__tactical_upgrade_opf/roles",
+            "stdin_add_newline": true,
+            "stdin": null
+        }
+    }
+}
+
++
+Git\ansible-role-was9nd\meta:
+main.yaml:
+---
+galaxy_info:
+  author: Sanjay Kumar
+  description: WAS9 Role
+  company: Rabobank
+dependencies:
+
+  - name: middlewareRepo
+    src: https://git.rabobank.nl/scm/meng/ansible_role_mwrepo.git 
+    scm: git
+    version: master
+->
+---
+galaxy_info:
+  author: Sanjay Kumar
+  description: WAS9 Role
+  company: Rabobank
+dependencies:
+
+  - name: middlewareRepo
+    src: ssh://git@git.rabobank.nl:7999/meng/ansible_role_mwrepo.git 
+    scm: git
+    version: master
+

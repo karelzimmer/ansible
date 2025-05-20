@@ -1,0 +1,13 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: false
+
+  tasks:
+  - name: Use the rot13 filter
+    debug:
+      msg: "{{ 'Hello World!' | rot13 }}"
+
+  - name: Count the chars
+    debug:
+      msg: "{{ 'Hello World!' | wc }}"

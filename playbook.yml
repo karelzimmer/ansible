@@ -1,0 +1,25 @@
+# ansible-playbook -i inventory/servers playbook.yml
+
+- hosts: webservers
+  become: yes
+
+  tasks:
+    - name: Install Apache 2
+      package: 
+        name: apache2
+        state: present
+
+    - name: Start the Apache2 Webserver
+      service: 
+        name: apache2
+        state: started
+  
+
+- hosts: dbservers
+  become: yes
+
+  tasks:
+    - name: Install MySQL / MariaDB
+      package: 
+        name:  mariadb-server
+        state: present

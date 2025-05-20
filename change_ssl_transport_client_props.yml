@@ -1,0 +1,24 @@
+---
+    - name: List ssl.client.props files
+      shell:  "find /opt/was/as/profiles -name ssl.client.props"
+      register: ssl_client_files
+      changed_when: False
+      become: yes
+      become_method: sudo
+      become_user: root
+
+    - debug:
+        msg:  " {{ ssl_client_files }}"
+
+    - name:  Change SSL protocol
+      replace:
+        path: "{{ item }}"
+        regexp: '(^com\.ibm\.ssl\.protocol=SSL_TLS)'
+        replace: "com.ibm.ssl.protocol=TLSv1.2"
+      with_items: 
+             "{{  ssl_client_files.stdout_lines }}"
+      when: ssl_client_files is defined 
+      become: yes
+      become_method: sudo
+      become_user: root
+

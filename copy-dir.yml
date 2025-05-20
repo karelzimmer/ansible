@@ -1,0 +1,10 @@
+- name: Deploy application
+  become: yes
+  hosts: vps2
+  remote_user: root
+
+  tasks:
+  - name: Example copying a file and directory structure
+    copy:
+        src: /home/ansible/data/
+        dest: /root/data

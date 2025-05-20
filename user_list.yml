@@ -1,0 +1,3 @@
+user_list:
+    - { name: testuser5, group: 'ansible' }
+    - { name: testuser6, group: 'ansible' }

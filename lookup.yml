@@ -1,0 +1,14 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: false
+
+  tasks:
+  - name: Lookup airport CDG
+    debug:
+      msg: '{{ lookup("airport", "CDG") }}'
+
+  - name: Lookup airport CDG + AMS
+    debug:
+      msg: '{{ lookup("airport", "CDG", "AMS") }}'
+

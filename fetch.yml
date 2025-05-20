@@ -1,0 +1,11 @@
+# Copies file with all the path references to the server and the path the file
+# is fetched from, e.g. /tmp/fetched-file/<server>/tmp/somefile.
+# Copy file without all the path references? use flat directive!
+- hosts: dbservers
+  become: yes
+  tasks:
+  - name: fetch a file
+    ansible.builtin.fetch:
+          src: /tmp/somefile
+          dest: /tmp/fetched-file/
+          # flat: yes

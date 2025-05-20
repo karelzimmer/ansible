@@ -1,0 +1,6 @@
+- hosts: webservers
+
+  tasks:
+    - name: Execute script
+      shell: /home/ansible/deploy.sh > /dev/null
+      

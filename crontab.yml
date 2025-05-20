@@ -1,0 +1,29 @@
+# Use https://crontab.guru/ for help on minute, hour, day (month), month, day (week)
+
+- name: Add script X to crontab for user Y
+  hosts: all
+  become: yes
+  become_method: sudo
+  become_user: Y
+
+  tasks:
+    - name: Add script X to crontab
+      cron:
+        name: X
+        job: "/home/Y/bin/X.sh &>/tmp/X.log"
+        minute: "0,15,30,45"
+        state: present
+        disabled: no
+        user: Y
+
+- name: Remove script X from crontab for user Y
+  hosts: all
+  become: yes
+  become_method: sudo
+  become_user: Y
+
+  tasks:
+    - name: Remove script X from crontab
+      cron:
+        name: X
+        state: absent

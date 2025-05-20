@@ -1,0 +1,14 @@
+- hosts: all
+  tasks:
+  
+  - name: Find *.pem files in dir
+    find:
+      paths: /home/ansible/certificates
+      patterns: "*.pem"
+    register: files_to_delete
+
+  - name: Remove the files
+    file:
+      path: "{{ item.path }}"
+      state: absent
+    with_items: "{{ files_to_delete.files }}"

@@ -1,0 +1,35 @@
+---
+    - set_fact:
+           appserver_operation: "START"
+
+    - import_tasks: "tasks/manage_dmgr.yml"
+      no_log: true
+
+    - name: create tools jython directory
+      file:
+        path: /appl/cte/tools/jython
+        state: directory
+        owner: wps
+        group: wps
+        mode: 0740
+      become: yes
+      become_method: sudo
+      become_user: root
+
+    - name: copy ModifyWASsslConfigs.py script
+      copy:
+        src: files/jython/ModifyWASsslConfigs.py
+        dest: /appl/cte/tools/jython/ModifyWASsslConfigs.py
+        owner: wps
+        group: wps
+        mode: 0644
+        backup: no
+      become: yes
+      become_method: sudo
+      become_user: root
+
+    - name:    execute wsadmin ModifyWASsslConfigs.py script
+      shell: "/opt/bpm/as/profiles/{{ ansible_hostname }}.0/bin/wsadmin.sh  -lang jython -f /appl/cte/tools/jython/ModifyWASsslConfigs.py"
+      become: yes
+      become_method: sudo
+      become_user: wps

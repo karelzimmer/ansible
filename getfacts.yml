@@ -1,0 +1,8 @@
+---
+- name: Haal facts op
+  hosts: all
+
+  tasks:
+  - name: Toon een fact
+    ansible.builtin.debug:
+      var: ansible_facts.date_time.iso8601

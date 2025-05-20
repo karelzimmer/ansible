@@ -1,0 +1,12 @@
+- hosts: webservers
+  tasks:
+
+  - ansible.builtin.debug:
+      msg: 'Host: {{ inventory_hostname }}'
+
+  - name: Config db user
+    ansible.builtin.lineinfile:
+      path: /home/ansible/config.ini
+      regexp: '^user='
+      line: 'user=usr_{{ inventory_hostname }}'
+      

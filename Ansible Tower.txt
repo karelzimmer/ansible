@@ -1,0 +1,35 @@
+Losse notities nav eerste intro Ansibel Tower door Anibal op dinsdag 19 feb 2019:
+---------------------------------------------------------------------------------
+project   ~ git-project repo
+inventory ~ cloudforms machines
+template  ~ contains orders on which server
+
+playbook-test -> sandbox
+playbook-prod -> ota/pa/prod
+
+playbook: tasks/roles/...
+
+Ansible       -> CLI
+Ansible Tower -> GUI (Opens Source=https://www.ansible.com/products/awx-project)
+
+git repo (lokaal)
+|
+V
+GitKraken (commit + push)
+|
+V
+git repo (centraal)
+|
+V
+Ansible Tower
+|
+V
+Project (Refresh/Resync!!)
+
+rcmd ~ Ansible's Playbook shell opdracht
+
+Losse notities nav tweede intro Ansibel Tower door Anibal op dinsdag 26 feb 2019:
+---------------------------------------------------------------------------------
+Vink aan Clean + Clean update bij het project en Refresh deze na een aanpassing!
+
+Batchjob bijvoorbeeld: https://git.rabobank.nl/projects/OPF/repos/ansible-test/browse/techlab.yml

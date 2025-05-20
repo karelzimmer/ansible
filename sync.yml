@@ -1,0 +1,11 @@
+- name: Deploy application
+  become: yes
+  hosts: vps2
+  remote_user: root
+
+  tasks:
+    - name: Synchronize file/directory structure
+      synchronize:
+         src: /home/ansible/data/
+         dest: /root/data
+         checksum: true

@@ -1,0 +1,63 @@
+---
+
+- name: Configure Ansible user
+  hosts: all
+  connection: local
+  become: true
+  become_method: sudo
+
+  tasks:
+  
+  - name: Add host entries
+    blockinfile:
+      dest: /etc/hosts
+      block: |
+        192.168.33.10 acs
+        192.168.33.20 web
+        192.168.33.30 db
+
+  - name: Create user ansible
+    user: 
+      name: ansible 
+      password: $1$2I.Or2ny$2jZ2RfolXuq0yZFfxwC5B0
+      shell: /bin/bash 
+      state: present
+
+  - name: Create ssh key
+    user:
+      name: ansible
+      generate_ssh_key: yes
+      ssh_key_type: rsa
+      ssh_key_file: .ssh/id_rsa
+
+  - name: Edit the sudoers file and add ansible user
+    lineinfile: "dest=/etc/sudoers.d/ansible
+                 create=yes
+                 state=present
+                 mode=0440
+                 line='ansible ALL=(ALL) NOPASSWD: ALL'"
+
+  - name: Remove the old PasswordAuthentication definition in sshd_config
+    lineinfile: dest=/etc/ssh/sshd_config
+                regexp="^PasswordAuthentication no"
+                state=absent
+
+  - name: Make sure we can use PasswordAuthentication in sshd_config
+
+    lineinfile: dest=/etc/ssh/sshd_config
+                line='PasswordAuthentication yes'
+                insertafter='^#?PermitEmptyPasswords'
+    notify: 
+    - restart sshd
+
+  - name: create /etc/httpd/conf directory
+    file: dest=/etc/httpd/conf mode=755 state=directory 
+    when: inventory_hostname == "acs"
+
+  - name: Copy example httpd.conf to the acs server for course practice
+    copy: src=httpd.conf dest=/etc/httpd/conf/httpd.conf
+    when: inventory_hostname == "acs"
+
+  handlers:
+  - name: restart sshd
+    service: name=sshd state=restarted
